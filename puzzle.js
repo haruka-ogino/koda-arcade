@@ -37,7 +37,7 @@ function handleClick(i, evt) {
     console.log('first click:')
     console.log(clickedOne)
   } else if (clickedTwo[0] === 10) {
-    evt.target.classList.toggle('clicked')
+    // evt.target.classList.toggle('clicked')
     clickedTwo[0] = i
     clickedTwo[1] = evt.srcElement.src
     console.log('second click:')
@@ -67,17 +67,21 @@ function swapImgs() {
     img2.src = `public/${imgName1}`
 
     console.log('After swap:', img1.src, img2.src)
-
-    clickedOne[0] = 10
-    clickedTwo[0] = 10
-
-    clickedOne[1] = ''
-    clickedTwo[1] = ''
+    resetGame(imgName2)
   } else {
     console.log('One or both images not found.')
   }
 }
 
+function resetGame(imgName) {
+  clickedOne[0] = 10
+  clickedTwo[0] = 10
+  clickedOne[1] = ''
+  clickedTwo[1] = ''
+  const img = document.querySelector(`img[src="public/${imgName}"]`)
+  console.log(img)
+  img.classList.remove('clicked')
+}
 const clickedOne = [10, '']
 const clickedTwo = [10, '']
 
