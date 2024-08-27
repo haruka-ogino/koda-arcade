@@ -78,13 +78,14 @@ function swapImgs() {
     img2.src = `public/${imgName1}`
 
     console.log('After swap:', img1.src, img2.src)
-    resetGame(imgName2)
+    resetStates(imgName2)
+    checkWin()
   } else {
     console.log('One or both images not found.')
   }
 }
 
-function resetGame(imgName) {
+function resetStates(imgName) {
   clickedOne[0] = 10
   clickedTwo[0] = 10
   clickedOne[1] = ''
@@ -94,8 +95,26 @@ function resetGame(imgName) {
   console.log(img)
   img.classList.remove('clicked')
 }
+
+function checkWin() {
+  const puzzlePieces = document.getElementsByClassName('board')[0].children
+  const state = []
+  let winState = true
+  for (let i = 0; i < puzzlePieces.length; i++) {
+    let image = puzzlePieces[i].src.split('/').pop()
+    let answer = image.substring(0, image.lastIndexOf('.'))
+    if (image !== answer) {
+      winState = false
+      break
+    }
+  }
+
+  if (winState === true) console.log('YOU WINNNN')
+}
+
 const clickedOne = [10, '']
 const clickedTwo = [10, '']
+const answerArr = ['00', '10', '20', '01', '11', '21', '02', '12']
 
 // line below adds class
 // evt.target.classList.toggle([classname])
