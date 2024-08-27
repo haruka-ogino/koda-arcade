@@ -1,0 +1,28 @@
+html,
+body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 10px;
+  justify-items: center;
+  align-items: center;
+}
+
+.piece img {
+  width: 400px;
+}
+
+img.clicked-one {
+  width: 300px;
+  border: 20px solid rgb(0, 255, 255);
+}
