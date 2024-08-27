@@ -42,9 +42,20 @@ function handleClick(i, evt) {
     clickedTwo[1] = evt.srcElement.src
     console.log('second click:')
     console.log(clickedTwo)
-    swapImgs()
+    checkPosition()
   } else {
     return
+  }
+}
+
+function checkPosition() {
+  const imgName2 = clickedTwo[1].split('/').pop()
+
+  if (imgName2 === 'blank.jpg') {
+    swapImgs()
+  } else {
+    const imgName1 = clickedOne[1].split('/').pop()
+    resetGame(imgName1)
   }
 }
 
@@ -78,6 +89,7 @@ function resetGame(imgName) {
   clickedTwo[0] = 10
   clickedOne[1] = ''
   clickedTwo[1] = ''
+
   const img = document.querySelector(`img[src="public/${imgName}"]`)
   console.log(img)
   img.classList.remove('clicked')
