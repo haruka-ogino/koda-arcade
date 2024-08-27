@@ -21,30 +21,65 @@ function start() {
 
 function bindEventListeners(pieces) {
   for (let i = 0; i < pieces.length; i++) {
-    pieces[i].addEventListener('click', handleClick)
+    pieces[i].addEventListener('click', function (evt) {
+      handleClick(i, evt)
+    })
   }
 }
 
-let firstClick
-let secondClick
-
 // toggle means if the class is there, remove it, otherwise, add it
-function handleClick(evt) {
-  evt.preventDefault()
-  const clickedPieces = document.getElementsByClassName('clicked')[0]
-  if (!clickedPieces) {
+function handleClick(i, evt) {
+  // const clickedPieces = document.getElementsByClassName('clicked')[0]
+  if (clickedOne[0] === 10) {
     evt.target.classList.toggle('clicked')
-    firstClick = evt.srcElement.src
-    console.log('first click: ' + firstClick)
-  } else if (clickedPieces && clickedElement.children.length === 1) {
+    clickedOne[0] = i
+    clickedOne[1] = evt.srcElement.src
+    console.log('first click:')
+    console.log(clickedOne)
+  } else if (clickedTwo[0] === 10) {
     evt.target.classList.toggle('clicked')
-    secondClick = evt.srcElement.src
-    console.log('second click: ' + secondClick)
+    clickedTwo[0] = i
+    clickedTwo[1] = evt.srcElement.src
+    console.log('second click:')
+    console.log(clickedTwo)
     swapImgs()
-  } else if (clickedPieces && clickedElement.children.length > 2) {
+  } else {
     return
   }
 }
+
+function swapImgs() {
+  const imgName1 = clickedOne[1].split('/').pop()
+  const imgName2 = clickedTwo[1].split('/').pop()
+
+  const img1 = document.querySelector(`img[src="public/${imgName1}"]`)
+  const img2 = document.querySelector(`img[src="public/${imgName2}"]`)
+
+  // console.log(img1.src)
+  // console.log(img2)
+
+  if (img1 && img2) {
+    //   // Log the images to ensure they are correctly selected
+    console.log('Before swap:', img1.src, img2.src)
+
+    // Swap the src attributes
+    img1.src = `public/${imgName2}`
+    img2.src = `public/${imgName1}`
+
+    console.log('After swap:', img1.src, img2.src)
+
+    clickedOne[0] = 10
+    clickedTwo[0] = 10
+
+    clickedOne[1] = ''
+    clickedTwo[1] = ''
+  } else {
+    console.log('One or both images not found.')
+  }
+}
+
+const clickedOne = [10, '']
+const clickedTwo = [10, '']
 
 // line below adds class
 // evt.target.classList.toggle([classname])
