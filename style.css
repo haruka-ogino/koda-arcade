@@ -18,11 +18,22 @@ body {
   align-items: center;
 }
 
-.piece img {
-  width: 400px;
+.board img {
+  width: 350px;
 }
 
-img.clicked-one {
+img.clicked {
   width: 300px;
-  border: 20px solid rgb(0, 255, 255);
+  border: 10px solid rgb(0, 255, 255);
+}
+
+.answer {
+  width: 1200px;
+  z-index: 10;
+  position: absolute;
+  border: 10px solid rgb(5, 208, 208);
+}
+
+.hidden {
+  display: none;
 }
