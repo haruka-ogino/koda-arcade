@@ -13,7 +13,7 @@ body {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(3, 1fr);
-  gap: 10px;
+  /* gap: 10px; */
   justify-items: center;
   align-items: center;
 }
@@ -22,16 +22,28 @@ body {
   width: 350px;
 }
 
+.overlay {
+  opacity: 50%;
+}
+
 img.clicked {
   width: 300px;
   border: 10px solid rgb(0, 255, 255);
 }
 
 .answer {
-  width: 1200px;
-  z-index: 10;
+  opacity: 0;
+  transition: width 1200ms ease-in, opacity 1200ms ease-in;
+  z-index: 1;
   position: absolute;
+  border: 0;
+}
+
+.reveal {
+  width: 1050px;
+  z-index: 10;
   border: 10px solid rgb(5, 208, 208);
+  opacity: 1;
 }
 
 .hidden {
