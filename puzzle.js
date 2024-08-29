@@ -27,8 +27,6 @@ function checkSides(index, evt) {
     currentArr.push(image)
   }
 
-  let blankI
-
   if (
     (currentArr[index - 3] === 'blank.jpg') |
     (currentArr[index - 1] === 'blank.jpg') |
@@ -69,6 +67,20 @@ function checkWin() {
   }
 
   if (winState === true) {
+    const pieces = document.getElementsByClassName('piece')
+
+    for (const piece of pieces) {
+      piece.classList.add('overlay')
+    }
+
+    const imgAns = document.getElementsByClassName('hidden')[0]
+
+    imgAns.classList.remove('hidden')
+
+    setTimeout(() => {
+      imgAns.classList.add('reveal')
+    }, 5)
+
     console.log('YOU WINNNN')
   } else {
     console.log('not a winnnn')
