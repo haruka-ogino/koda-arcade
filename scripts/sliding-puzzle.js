@@ -19,6 +19,7 @@ function bindEventListeners(pieces) {
 }
 
 function checkSides(index, evt) {
+  console.log(index)
   const clicked = evt.srcElement.src
   const puzzlePieces = document.getElementsByClassName('board')[0].children
   const currentArr = []
@@ -41,11 +42,17 @@ function checkSides(index, evt) {
 function swapPieces(clicked) {
   const imgName = clicked.split('/').pop()
   console.log(imgName)
-  const img1 = document.querySelector(`img[src="public/${imgName}"]`)
-  const img2 = document.querySelector(`img[src="public/blank.jpg"]`)
+  const img1 = document.querySelector(
+    `img[src="../public/sliding-majo/${imgName}"]`
+  )
+  const img2 = document.querySelector(
+    `img[src="../public/sliding-majo/blank.jpg"]`
+  )
+
+  console.log(img1, img2)
   if (img1 && img2) {
-    img1.src = `public/blank.jpg`
-    img2.src = `public/${imgName}`
+    img1.src = `../public/sliding-majo/blank.jpg`
+    img2.src = `../public/sliding-majo/${imgName}`
     checkWin()
   } else {
     console.log('One or both images not found.')
