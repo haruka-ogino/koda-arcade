@@ -2,6 +2,19 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
+}
+
+.jigsaw-board {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  border: 2px solid blue;
+}
+
+.jigsaw-board img {
+  width: 80px;
+  border: 2px solid green;
+  background: lightblue;
 }
 
 .jigsaw-pieces {
@@ -11,8 +24,13 @@ body {
   justify-content: center;
   padding: 10px;
   border: 2px solid blue;
+  margin-top: 2px;
 }
 
 .jigsaw-pieces img {
   width: 80px;
+}
+
+.jigsaw-piece:hover {
+  opacity: 30%;
 }
