@@ -1,26 +1,6 @@
 document.addEventListener('DOMContentLoaded', start)
 
 function start() {
-  // const images = [
-  //   '001',
-  //   '002',
-  //   '003',
-  //   '004',
-  //   '005',
-  //   '006',
-  //   '007',
-  //   '008',
-  //   '009',
-  //   '010',
-  //   '011',
-  //   '012',
-  //   '013',
-  //   '014',
-  //   '015',
-  // ]
-  // const two = 2
-  // const newNum = two.toString()
-  // randomise fn to be built
   createArr()
 }
 
@@ -39,7 +19,16 @@ function createArr() {
     images.push(element)
   }
 
-  displayImgs(images)
+  shuffleImgs(images)
+}
+
+function shuffleImgs(imagesArray) {
+  // knuth shuffle
+  for (let i = imagesArray.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1))
+    ;[imagesArray[i], imagesArray[j]] = [imagesArray[j], imagesArray[i]]
+  }
+  displayImgs(imagesArray)
 }
 
 function displayImgs(images) {
