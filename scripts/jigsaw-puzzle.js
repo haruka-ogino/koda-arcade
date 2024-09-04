@@ -38,6 +38,7 @@ function displayImgs(images) {
     const img = document.createElement('img')
     img.src = `../public/jigsaw-sootsprites/image_part_${images[i]}.png`
     img.alt = 'puzzle piece'
+    img.className = 'jigsaw-piece'
     img.width = 200
     imageContainer.appendChild(img)
   }
