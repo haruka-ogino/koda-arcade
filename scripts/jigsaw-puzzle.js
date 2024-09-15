@@ -57,8 +57,6 @@ let clicked = null
 
 function handlePiecesClick(evt) {
   clicked = evt.target
-  // console.log(clicked)
-  bindBoardListeners()
 }
 
 function bindBoardListeners() {
@@ -66,7 +64,7 @@ function bindBoardListeners() {
 
   for (let i = 0; i < board.length; i++) {
     board[i].addEventListener('click', function (evt) {
-      console.log(evt.target.src)
+      // console.log(evt.target.src)
       if (evt.target.src.includes('090')) {
         placePiece(evt)
       } else {
@@ -84,6 +82,23 @@ function placePiece(evt) {
     .split('/')
     .pop()}`
   clicked.style.visibility = 'hidden'
+  resetClicked()
+}
+
+function removePiece(evt) {
+  const imageContainer =
+    document.getElementsByClassName('jigsaw-pieces')[0].children
+
+  let position
+
+  for (let i = 0; i < imageContainer.length; i++) {
+    if (imageContainer[i].src === evt.target.src) {
+      imageContainer[i].style.visibility = 'visible'
+      position = i
+      console.log(i)
+      evt.target.src = `../public/jigsaw-sootsprites/image_part_090.png`
+    }
+  }
 }
 
 function resetClicked() {
