@@ -60,3 +60,13 @@ function handlePiecesClick(evt) {
 
   bindBoardListeners()
 }
+
+function bindBoardListeners() {
+  const board = document.getElementsByClassName('jigsaw-board')[0].children
+
+  for (let i = 0; i < board.length; i++) {
+    board[i].addEventListener('click', function (evt) {
+      placePiece(evt)
+    })
+  }
+}
