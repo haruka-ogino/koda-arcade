@@ -1,8 +1,4 @@
-document.addEventListener('DOMContentLoaded', start)
-
-function start() {
-  createArr()
-}
+document.addEventListener('DOMContentLoaded', createArr)
 
 function createArr() {
   const images = []
@@ -15,7 +11,6 @@ function createArr() {
     } else {
       element = `0${number}`
     }
-    console.log(element)
     images.push(element)
   }
 
@@ -42,4 +37,22 @@ function displayImgs(images) {
     img.width = 200
     imageContainer.appendChild(img)
   }
+
+  handlePiecesClick()
+}
+
+function handlePiecesClick() {
+  const imageContainer =
+    document.getElementsByClassName('jigsaw-pieces')[0].children
+
+  for (let i = 0; i < imageContainer.length; i++) {
+    console.log(imageContainer[i])
+    imageContainer[i].addEventListener('click', function (evt) {
+      handleClick(evt)
+    })
+  }
+}
+
+function handleClick(evt) {
+  console.log(evt)
 }
