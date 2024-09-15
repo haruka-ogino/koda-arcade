@@ -70,3 +70,8 @@ function bindBoardListeners() {
     })
   }
 }
+
+function placePiece(evt) {
+  const clickedElement = evt.target
+  clickedElement.src = `../public/jigsaw-sootsprites/${clicked}`
+}
