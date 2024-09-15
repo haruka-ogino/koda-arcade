@@ -52,11 +52,11 @@ function bindPiecesListeners() {
   }
 }
 
-let clicked
+let clicked = null
 
 function handlePiecesClick(evt) {
   clicked = evt.target
-
+  console.log(clicked)
   bindBoardListeners()
 }
 
@@ -71,9 +71,15 @@ function bindBoardListeners() {
 }
 
 function placePiece(evt) {
-  const clickedElement = evt.target
+  let clickedElement = evt.target
+  // console.log(clicked)
+
   clickedElement.src = `../public/jigsaw-sootsprites/${clicked.src
     .split('/')
     .pop()}`
-  clicked.src = '../public/jigsaw-sootsprites/image_part_090.png'
+  clicked.style.visibility = 'hidden'
+}
+
+function resetClicked() {
+  clicked = null
 }
