@@ -39,6 +39,7 @@ function displayImgs(images) {
   }
 
   bindPiecesListeners()
+  bindBoardListeners()
 }
 
 function bindPiecesListeners() {
@@ -56,7 +57,7 @@ let clicked = null
 
 function handlePiecesClick(evt) {
   clicked = evt.target
-  console.log(clicked)
+  // console.log(clicked)
   bindBoardListeners()
 }
 
@@ -65,7 +66,12 @@ function bindBoardListeners() {
 
   for (let i = 0; i < board.length; i++) {
     board[i].addEventListener('click', function (evt) {
-      placePiece(evt)
+      console.log(evt.target.src)
+      if (evt.target.src.includes('090')) {
+        placePiece(evt)
+      } else {
+        removePiece(evt)
+      }
     })
   }
 }
