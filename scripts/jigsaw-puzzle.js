@@ -55,7 +55,8 @@ function bindPiecesListeners() {
 let clicked
 
 function handlePiecesClick(evt) {
-  clicked = evt.srcElement.src.split('/').pop()
+  clicked = evt.target.src
+
   console.log(clicked)
 
   bindBoardListeners()
@@ -73,5 +74,7 @@ function bindBoardListeners() {
 
 function placePiece(evt) {
   const clickedElement = evt.target
-  clickedElement.src = `../public/jigsaw-sootsprites/${clicked}`
+  clickedElement.src = `../public/jigsaw-sootsprites/${clicked
+    .split('/')
+    .pop()}`
 }
