@@ -38,21 +38,25 @@ function displayImgs(images) {
     imageContainer.appendChild(img)
   }
 
-  handlePiecesClick()
+  bindPiecesListeners()
 }
 
-function handlePiecesClick() {
+function bindPiecesListeners() {
   const imageContainer =
     document.getElementsByClassName('jigsaw-pieces')[0].children
 
   for (let i = 0; i < imageContainer.length; i++) {
-    console.log(imageContainer[i])
     imageContainer[i].addEventListener('click', function (evt) {
-      handleClick(evt)
+      handlePiecesClick(evt)
     })
   }
 }
 
-function handleClick(evt) {
-  console.log(evt)
+let clicked
+
+function handlePiecesClick(evt) {
+  clicked = evt.srcElement.src.split('/').pop()
+  console.log(clicked)
+
+  bindBoardListeners()
 }
