@@ -82,6 +82,8 @@ function placePiece(evt) {
     .split('/')
     .pop()}`
   clicked.style.visibility = 'hidden'
+  checkWin()
+
   resetClicked()
 }
 
@@ -103,4 +105,25 @@ function removePiece(evt) {
 
 function resetClicked() {
   clicked = null
+}
+
+function checkWin() {
+  const imageContainer =
+    document.getElementsByClassName('jigsaw-board')[0].children
+  let winState = true
+  for (let i = 0; i < imageContainer.length; i++) {
+    if (i <= 8) {
+      if (!imageContainer[i].src.includes(`00${i + 1}`)) {
+        console.log('not a win')
+        winState = false
+        break
+      }
+    } else if (i > 8) {
+      if (!imageContainer[i].src.includes(`0${i + 1}`)) {
+        console.log('not a win')
+        winState = false
+        break
+      }
+    }
+  }
 }
