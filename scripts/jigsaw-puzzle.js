@@ -71,7 +71,6 @@ function bindBoardListeners() {
 
   for (let i = 0; i < board.length; i++) {
     board[i].addEventListener('click', function (evt) {
-      // console.log(evt.target.src)
       if (evt.target.src.includes('090')) {
         placePiece(evt)
       } else {
@@ -83,7 +82,6 @@ function bindBoardListeners() {
 
 function placePiece(evt) {
   let clickedElement = evt.target
-  // console.log(clicked)
 
   clickedElement.src = `../public/jigsaw-sootsprites/${clicked.src
     .split('/')
@@ -97,8 +95,6 @@ function placePiece(evt) {
 function removePiece(evt) {
   const imageContainer =
     document.getElementsByClassName('jigsaw-pieces')[0].children
-
-  let position
 
   for (let i = 0; i < imageContainer.length; i++) {
     if (imageContainer[i].src === evt.target.src) {
