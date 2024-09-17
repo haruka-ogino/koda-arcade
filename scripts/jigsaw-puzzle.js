@@ -28,8 +28,15 @@ function shuffleImgs(imagesArray) {
 
 function displayImgs(images) {
   const imageContainer = document.getElementsByClassName('jigsaw-pieces')[0]
+  const boardContainer = document.getElementsByClassName('jigsaw-board')[0]
 
   for (let i = 0; i < images.length; i++) {
+    const blankImg = document.createElement('img')
+    blankImg.src = `../public/jigsaw-sootsprites/image_part_090.png`
+    blankImg.alt = 'puzzle piece on board'
+    blankImg.className = 'jigsaw-piece'
+    boardContainer.appendChild(blankImg)
+
     const img = document.createElement('img')
     img.src = `../public/jigsaw-sootsprites/image_part_${images[i]}.png`
     img.alt = 'puzzle piece'
