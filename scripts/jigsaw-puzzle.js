@@ -132,7 +132,8 @@ function checkWin() {
 }
 
 function displayAnswer() {
-  const bodyContainer = document.getElementsByTagName('body')
+  const bodyContainer = document.getElementsByTagName('body')[0]
+  console.log(bodyContainer)
 
   const img = document.createElement('img')
   img.src = '../public/jigsaw-sootsprites/soots-solution-easy.jpeg'
@@ -140,4 +141,5 @@ function displayAnswer() {
   img.className = 'answer'
 
   bodyContainer.appendChild(img)
+  console.log('you win!')
 }
