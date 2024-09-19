@@ -130,3 +130,14 @@ function checkWin() {
     }
   }
 }
+
+function displayAnswer() {
+  const bodyContainer = document.getElementsByTagName('body')
+
+  const img = document.createElement('img')
+  img.src = '../public/jigsaw-sootsprites/soots-solution-easy.jpeg'
+  img.alt = 'jigsaw puzzle answer'
+  img.className = 'answer'
+
+  bodyContainer.appendChild(img)
+}

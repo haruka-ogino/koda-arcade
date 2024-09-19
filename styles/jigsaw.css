@@ -35,10 +35,6 @@ body {
   opacity: 30%;
 }
 
-.hidden {
-  display: none;
-}
-
 .answer {
   display: block;
   width: 420px;
