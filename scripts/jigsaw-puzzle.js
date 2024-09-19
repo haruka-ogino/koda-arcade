@@ -113,7 +113,9 @@ function resetClicked() {
 function checkWin() {
   const imageContainer =
     document.getElementsByClassName('jigsaw-board')[0].children
+
   let winState = true
+
   for (let i = 0; i < imageContainer.length; i++) {
     if (i <= 8) {
       if (!imageContainer[i].src.includes(`00${i + 1}`)) {
@@ -128,6 +130,10 @@ function checkWin() {
         break
       }
     }
+  }
+
+  if (winState === true) {
+    displayAnswer()
   }
 }
 
