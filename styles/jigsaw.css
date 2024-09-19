@@ -34,3 +34,16 @@ body {
 .jigsaw-piece:hover {
   opacity: 30%;
 }
+
+.hidden {
+  display: none;
+}
+
+.answer {
+  display: block;
+  width: 420px;
+  transition: width 1200ms ease-in, opacity 1200ms ease-in;
+  position: absolute;
+  border: 0;
+  top: 10px;
+}
