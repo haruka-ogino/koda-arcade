@@ -27,7 +27,8 @@ body {
   margin-top: 2px;
 }
 
-.jigsaw-pieces img {
+.jigsaw-pieces img,
+.blank img {
   width: 80px;
 }
 

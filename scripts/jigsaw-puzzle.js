@@ -34,7 +34,7 @@ function displayImgs(images) {
     const blankImg = document.createElement('img')
     blankImg.src = `../public/jigsaw-sootsprites/image_part_090.png`
     blankImg.alt = 'puzzle piece on board'
-    blankImg.className = 'jigsaw-piece'
+    blankImg.className = 'blank'
     boardContainer.appendChild(blankImg)
 
     const img = document.createElement('img')
@@ -87,6 +87,7 @@ function placePiece(evt) {
     .split('/')
     .pop()}`
   clicked.style.visibility = 'hidden'
+  clickedElement.className = 'jigsaw-piece'
   checkWin()
 
   resetClicked()
@@ -99,6 +100,8 @@ function removePiece(evt) {
   for (let i = 0; i < imageContainer.length; i++) {
     if (imageContainer[i].src === evt.target.src) {
       imageContainer[i].style.visibility = 'visible'
+      evt.target.classList.remove('jigsaw-piece')
+      imageContainer[i].className = 'blank'
       position = i
       console.log(i)
       evt.target.src = `../public/jigsaw-sootsprites/image_part_090.png`
