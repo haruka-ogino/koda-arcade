@@ -42,4 +42,16 @@ function displayAlphabet() {
     { letter: 'Y', show: true },
     { letter: 'Z', show: true },
   ]
+  console.log('fn called!')
+
+  const alphabetBoard = document.getElementsByClassName('alphabet-board')[0]
+
+  for (let i = 0; i < letters.length; i++) {
+    let alphabetLetter = document.createElement('p')
+    alphabetLetter.textContent = letters[i].letter
+    // if (letters[i].show) {
+    //   alphabetLetter.className = 'unused'
+    // }
+    alphabetBoard.appendChild(alphabetLetter)
+  }
 }
