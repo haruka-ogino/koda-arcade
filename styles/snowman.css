@@ -15,4 +15,15 @@ body {
   margin: 0.5em;
   border: solid 2px green;
   cursor: pointer;
+  position: relative;
+}
+
+.strike-through {
+  border-top: 2px solid green;
+  width: 100%;
+  top: 50%;
+  left: 0;
+  transform: rotate(-55deg);
+  position: absolute;
+  z-index: 10;
 }
