@@ -1,8 +1,18 @@
+body {
+  flex-direction: column;
+}
+
 .alphabet-board {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
+  width: 80%;
 }
 
-.alphabet-board p {
-  padding: 1em;
+.alphabet-board button {
+  width: 2.5em;
+  height: 3em;
+  margin: 0.5em;
+  border: solid 2px green;
+  cursor: pointer;
 }

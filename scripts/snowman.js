@@ -47,7 +47,7 @@ function displayAlphabet() {
   const alphabetBoard = document.getElementsByClassName('alphabet-board')[0]
 
   for (let i = 0; i < letters.length; i++) {
-    let alphabetLetter = document.createElement('p')
+    let alphabetLetter = document.createElement('button')
     alphabetLetter.textContent = letters[i].letter
     // if (letters[i].show) {
     //   alphabetLetter.className = 'unused'
