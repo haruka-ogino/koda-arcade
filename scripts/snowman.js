@@ -49,6 +49,7 @@ function displayAlphabet() {
   for (let i = 0; i < letters.length; i++) {
     let alphabetLetter = document.createElement('button')
     alphabetLetter.textContent = letters[i].letter
+    alphabetLetter.appendChild(document.createElement('span'))
     alphabetBoard.appendChild(alphabetLetter)
     alphabetLetter.addEventListener('click', function (evt) {
       handleLetterClick(evt)
@@ -58,5 +59,11 @@ function displayAlphabet() {
 
 function handleLetterClick(evt) {
   console.log(evt.target.textContent + ' clicked')
-  evt.classList.add('strike-through')
+
+  // evt.target.classList.add('strike-through')
+  if (evt.target.firstElementChild) {
+    evt.target.firstElementChild.classList.add('strike-through')
+
+    console.log(evt.target.firstElementChild.classList)
+  }
 }
