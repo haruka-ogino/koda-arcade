@@ -1,0 +1,8 @@
+.alphabet-board {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.alphabet-board p {
+  padding: 1em;
+}
