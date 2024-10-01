@@ -3,6 +3,13 @@ document.addEventListener('DOMContentLoaded', startGame)
 function startGame() {
   const answer = 'CAMEL'
 
+  let answerArr = []
+
+  for (let i = 0; i < answer.length; i++) {
+    const element = { letter: array[i], show: false }
+    answerArr.push(element)
+  }
+
   displayAlphabet()
 }
 
